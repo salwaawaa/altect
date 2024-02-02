@@ -1,40 +1,9 @@
+import 'package:altect/screen/warga/home/controllers/home_controllers.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
+import 'package:get/get.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  late String _currentTime = '';
-
-  @override
-  void initState() {
-    super.initState();
-    _updateTime();
-
-    Timer.periodic(const Duration(seconds: 1), (Timer timer) => _updateTime());
-  }
-
-  void _updateTime() {
-    setState(() {
-      _currentTime = _getCurrentTime();
-    });
-  }
-
-  String _getCurrentTime() {
-    DateTime now = DateTime.now();
-    String formattedTime =
-        "${_formatTimeComponent(now.hour)}:${_formatTimeComponent(now.minute)}:${_formatTimeComponent(now.second)}";
-    return formattedTime;
-  }
-
-  String _formatTimeComponent(int timeComponent) {
-    return timeComponent < 10 ? '0$timeComponent' : '$timeComponent';
-  }
+class Home extends GetView<HomeController> {
+  final HomeController homeController = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
@@ -48,9 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(
-                  height: 125,
-                ),
+                
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
@@ -65,14 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     child: Center(
-                      child: Text(
-                        _currentTime ?? "Loading...",
-                        style: const TextStyle(
-                          fontSize: 60,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
+                      child: Obx(() => Text(
+                            controller.currentTime,
+                            style: TextStyle(
+                              fontSize: 60,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          )),
                     ),
                   ),
                 ),
@@ -107,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Image.asset(
-                            "assets/image/pencurian.png",
+                            "images/pencurian.png",
                             width: 100,
                             height: 100,
                             fit: BoxFit.contain,
@@ -139,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const Padding(
                           padding: EdgeInsets.only(left: 8.0),
                           child: Text(
-                            "kebakaran",
+                            "Kebakaran",
                             style: TextStyle(
                               fontSize: 45,
                               color: Colors.white,
@@ -147,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Image.asset(
-                          "assets/image/kebakaran1.png",
+                          "images/kebakaran.png",
                           width: 100,
                           height: 100,
                           fit: BoxFit.contain,
@@ -186,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Image.asset(
-                          "assets/image/banjir.png",
+                          "images/banjir.png",
                           width: 100,
                           height: 100,
                           fit: BoxFit.contain,

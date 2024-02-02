@@ -17,9 +17,13 @@ class SplashController extends GetxController {
     startTimer();
   }
 
-  void startTimer() => Future.delayed(const Duration(seconds: 4), () {
+
+
+  void startTimer() => Future.delayed(const Duration(seconds: 2), () {
         GetStorage box = GetStorage();
         bool isFirstOpen = box.read("isFirstOpen") ?? true;
         print(isFirstOpen);
+
+        Get.offNamed('/home'); 
       });
 }

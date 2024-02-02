@@ -1,4 +1,4 @@
-import 'package:altect/screen/splash_screen/controllers/splash_controllers.dart';
+import 'package:altect/screen/warga/splash_screen/controllers/splash_controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
