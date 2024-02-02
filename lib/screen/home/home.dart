@@ -107,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Image.asset(
-                            "assets/image/pencurian1.png",
+                            "assets/image/pencurian.png",
                             width: 100,
                             height: 100,
                             fit: BoxFit.contain,
