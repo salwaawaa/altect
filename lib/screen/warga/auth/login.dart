@@ -1,10 +1,12 @@
-import 'package:altect/screen/warga/login/controllers/login_controllers.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'controllers/auth_controllers.dart';
 // Assuming you have a custom FilledButton widget
 
-class Login extends GetView<LoginController> {
+class Login extends GetView<AuthController> {
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -141,6 +143,26 @@ class Login extends GetView<LoginController> {
                 ),
               ),
             ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Belum punya akun ? ",
+                  style: TextStyle(fontSize: 20),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Get.offNamed('/register');
+                  },
+                  child: const Text("Daftar",
+                  style: TextStyle(fontSize: 20, color: Colors.red),
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),

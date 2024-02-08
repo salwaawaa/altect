@@ -2,6 +2,7 @@ import 'package:altect/screen/warga/profil/controllers/profil_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart'; // Tambahkan impor ini
 
 class Profil extends GetView<ProfilController> {
   final ProfilController homeController = Get.put(ProfilController());
@@ -43,25 +44,28 @@ class Profil extends GetView<ProfilController> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 0,
                 ),
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      width: 150,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        borderRadius: BorderRadius.circular(15.0),
-                        border: Border.all(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                          width: 1.0,
-                        ),
-                      ),
+                Stack(
+                  alignment: Alignment.bottomRight,
+                  children: [
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                          'images/banjir.png'), // Ganti dengan path gambar profil
                     ),
-                  ),
+                    IconButton(
+                      onPressed: () {
+                        _showImagePicker(context);
+                      },
+                      icon: Icon(Icons.camera_enhance_outlined),
+                      color: Color.fromARGB(255, 191, 49, 49),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
                 ),
                 SizedBox(
                   height: 0,
@@ -83,7 +87,7 @@ class Profil extends GetView<ProfilController> {
                       child: Padding(
                         padding: const EdgeInsets.all(0),
                         child: Text(
-                          "NIK",
+                          "Email",
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
@@ -111,7 +115,7 @@ class Profil extends GetView<ProfilController> {
                       child: Padding(
                         padding: const EdgeInsets.all(0),
                         child: Text(
-                          "230948458",
+                          "${controller.app.user().email}",
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.normal,
@@ -122,7 +126,7 @@ class Profil extends GetView<ProfilController> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 0,
                 ),
                 Center(
@@ -173,7 +177,7 @@ class Profil extends GetView<ProfilController> {
                       child: Padding(
                         padding: const EdgeInsets.all(0),
                         child: Text(
-                          "gatau",
+                          "${controller.app.user().nama}",
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.normal,
@@ -235,7 +239,7 @@ class Profil extends GetView<ProfilController> {
                       child: Padding(
                         padding: const EdgeInsets.all(0),
                         child: Text(
-                          "Jalan Belitung No.8, RT.05, RW.15, Kelurahan Merdeka, Kec. Sumur Bandung, Kota Bandung ",
+                          "${controller.app.user().alamat}",
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.normal,
@@ -307,9 +311,46 @@ class Profil extends GetView<ProfilController> {
                 ),
               ],
             ),
+            // Tambahkan bagian NIK, Nama, Alamat, dan lainnya di sini
           ),
         ),
       ),
     );
+  }
+
+  void _showImagePicker(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return SafeArea(
+          child: Container(
+            child: new Wrap(
+              children: <Widget>[
+                new ListTile(
+                  leading: new Icon(Icons.photo_library),
+                  title: new Text('Photo Library'),
+                  onTap: () {
+                    _getImage(context, ImageSource.gallery);
+                    Navigator.of(context).pop();
+                  },
+                ),
+                new ListTile(
+                  leading: new Icon(Icons.camera_alt),
+                  title: new Text('Camera'),
+                  onTap: () {
+                    _getImage(context, ImageSource.camera);
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _getImage(BuildContext context, ImageSource source) async {
+    // Todo: Implementasi untuk mendapatkan gambar dari galeri atau kamera
   }
 }

@@ -4,14 +4,15 @@ import 'package:altect/screen/warga/home/bindings/home_bindings.dart';
 import 'package:altect/screen/warga/home/home.dart';
 import 'package:altect/screen/warga/jadwal_ronda/bindings/jadwal_bindings.dart';
 import 'package:altect/screen/warga/jadwal_ronda/jadwal_ronda.dart';
-import 'package:altect/screen/warga/login/bindings/login_bindings.dart';
-import 'package:altect/screen/warga/login/login.dart';
+import 'package:altect/screen/warga/auth/bindings/auth_bindings.dart';
+import 'package:altect/screen/warga/auth/login.dart';
 import 'package:altect/screen/warga/profil/profil.dart';
 import 'package:altect/screen/warga/splash_screen/bindings/splash_bindings.dart';
 import 'package:altect/screen/warga/splash_screen/splash_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
+import '../screen/warga/auth/register.dart';
 import '../screen/warga/profil/bindings/profil_bindings.dart';
 
 class AppRoutes {
@@ -33,7 +34,13 @@ class AppRoutes {
     GetPage(
       name: '/login',
       page: () => Login(),
-      binding: LoginBindings(),
+      binding: AuthBindings(),
+      transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: '/register',
+      page: () => Register(),
+      binding: AuthBindings(),
       transition: Transition.noTransition,
     ),
     GetPage(

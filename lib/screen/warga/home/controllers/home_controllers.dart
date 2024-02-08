@@ -1,12 +1,17 @@
 import 'dart:async';
+import 'package:altect/common/controllers/app_controller.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
+  AppController app = Get.find<AppController>();
+
   var _currentTime = ''.obs; // Gunakan obs untuk membuat Rx variable
   var _currentDate = ''.obs; // Tambahkan variabel untuk tanggal
 
-  String get currentTime => _currentTime.value; // Getter untuk nilai _currentTime
-  String get currentDate => _currentDate.value; // Getter untuk nilai _currentDate
+  String get currentTime =>
+      _currentTime.value; // Getter untuk nilai _currentTime
+  String get currentDate =>
+      _currentDate.value; // Getter untuk nilai _currentDate
 
   @override
   void onInit() {

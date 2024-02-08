@@ -1,4 +1,5 @@
 import 'package:altect/common/controllers/app_controller.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -17,13 +18,17 @@ class SplashController extends GetxController {
     startTimer();
   }
 
-
+  String isAuthenticated() => app.isAuthenticated.isTrue
+      ? app.user().role == "user"
+          ? '/bar'
+          : '/bar'
+      : '/login';
 
   void startTimer() => Future.delayed(const Duration(seconds: 2), () {
         GetStorage box = GetStorage();
         bool isFirstOpen = box.read("isFirstOpen") ?? true;
         print(isFirstOpen);
 
-        Get.offNamed('/bar'); 
+        Get.offNamed(isAuthenticated());
       });
 }

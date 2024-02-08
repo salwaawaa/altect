@@ -12,7 +12,7 @@ class Home extends GetView<HomeController> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          'Home',
+          'Halo ${controller.app.user().nama}!',
           style: GoogleFonts.poppins(
             fontSize: 30,
           ),
@@ -98,7 +98,7 @@ class Home extends GetView<HomeController> {
                             padding: EdgeInsets.only(left: 8.0),
                             child: Text(
                               "Pencurian",
-                              style: GoogleFonts.poppins(
+                              style: TextStyle(
                                 fontSize: 45,
                                 color: Colors.white,
                               ),
@@ -138,7 +138,7 @@ class Home extends GetView<HomeController> {
                           padding: EdgeInsets.only(left: 8.0),
                           child: Text(
                             "Kebakaran",
-                            style: GoogleFonts.poppins(
+                            style: TextStyle(
                               fontSize: 45,
                               color: Colors.white,
                             ),
@@ -177,7 +177,7 @@ class Home extends GetView<HomeController> {
                           padding: EdgeInsets.only(left: 8.0),
                           child: Text(
                             "Banjir",
-                            style: GoogleFonts.poppins(
+                            style: TextStyle(
                               fontSize: 45,
                               color: Colors.white,
                             ),
