@@ -3,7 +3,7 @@ class UserModel {
   final int nik;
   final String name;
   final String alamat;
-  final String username;
+  final String email;
   final String? createdAt;
   final String? updatedAt;
 
@@ -12,7 +12,7 @@ class UserModel {
     required this.nik,
     required this.name,
     required this.alamat,
-    required this.username,
+    required this.email,
     this.createdAt,
     this.updatedAt,
   });
@@ -23,7 +23,7 @@ class UserModel {
       nik: data['nik'],
       name: data['name'],
       alamat: data['alamat'],
-      username: data['username'],
+      email: data['email'],
       createdAt: data['createdAt'],
       updatedAt: data['updatedAt'],
     );
@@ -34,7 +34,7 @@ class UserModel {
         'nik': nik,
         'name': name,
         'alamat': alamat,
-        'username': username,
+        'email': email,
         'createdAt': createdAt,
         'updatedAt': updatedAt,
       };
@@ -43,7 +43,7 @@ class UserModel {
         'nik': nik,
         'name': name,
         'alamat': alamat,
-        'username': username,
+        'email': email,
         'createdAt': createdAt,
         'updatedAt': updatedAt,
       };

@@ -24,6 +24,6 @@ class SplashController extends GetxController {
         bool isFirstOpen = box.read("isFirstOpen") ?? true;
         print(isFirstOpen);
 
-        Get.offNamed('/home'); 
+        Get.offNamed('/bar'); 
       });
 }

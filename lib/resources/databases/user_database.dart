@@ -15,16 +15,28 @@ class UserDatabase {
     }
   }
 
-  Future<UserModel?> select({required String username}) async {
+  Future<UserModel?> select({required String email}) async {
     try {
       return await _supabase
           .from(table)
           .select()
-          .eq("username", username)
+          .eq("email", email)
           .withConverter<UserModel>((data) => UserModel.fromMap(data[0]));
     } catch (e) {
       print(e);
       return null;
+    }
+  }
+
+  Future insert({required UserModel userModel}) async {
+    try {
+      return await _supabase
+          .from(table)
+          .insert(userModel.toMapInsert())
+          .select();
+    } catch (e) {
+      print(e);
+      return false;
     }
   }
 }

@@ -5,6 +5,9 @@ import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
+import '../../jadwal_ronda/jadwal_ronda.dart';
+import '../../profil/profil.dart';
+
 class BarController extends GetxController {
   AppController app = Get.find<AppController>();
 
@@ -12,7 +15,7 @@ class BarController extends GetxController {
 
   final tabs = [
     Home(), 
-    // Jadwal(), 
-    // Profil()
+    Jadwal(), 
+    Profil()
     ];
 }

@@ -13,6 +13,7 @@ class Bar extends GetView<BarController> {
         return BottomNavigationBar(
           currentIndex: controller.currentIndex.value,
           type: BottomNavigationBarType.fixed,
+          selectedItemColor: const Color(0xFFBF3131),
           items: const [
             BottomNavigationBarItem(
                 icon: Icon(Icons.home),

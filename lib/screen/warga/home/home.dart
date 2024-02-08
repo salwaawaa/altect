@@ -1,6 +1,7 @@
 import 'package:altect/screen/warga/home/controllers/home_controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Home extends GetView<HomeController> {
   final HomeController homeController = Get.put(HomeController());
@@ -9,6 +10,24 @@ class Home extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text(
+          'Home',
+          style: GoogleFonts.poppins(
+            fontSize: 30,
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications_outlined),
+            iconSize: 30,
+            color: Colors.black,
+            onPressed: () {
+              // Tambahkan fungsi yang akan dijalankan saat ikon notifikasi ditekan
+            },
+          ),
+        ],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -17,7 +36,6 @@ class Home extends GetView<HomeController> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
@@ -32,14 +50,27 @@ class Home extends GetView<HomeController> {
                       ),
                     ),
                     child: Center(
-                      child: Obx(() => Text(
-                            controller.currentTime,
-                            style: TextStyle(
-                              fontSize: 60,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          )),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Obx(() => Text(
+                                controller.currentTime,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 60,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              )),
+                          Obx(() => Text(
+                                controller.currentDate,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
+                                ),
+                              )),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -67,7 +98,7 @@ class Home extends GetView<HomeController> {
                             padding: EdgeInsets.only(left: 8.0),
                             child: Text(
                               "Pencurian",
-                              style: TextStyle(
+                              style: GoogleFonts.poppins(
                                 fontSize: 45,
                                 color: Colors.white,
                               ),
@@ -107,7 +138,7 @@ class Home extends GetView<HomeController> {
                           padding: EdgeInsets.only(left: 8.0),
                           child: Text(
                             "Kebakaran",
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               fontSize: 45,
                               color: Colors.white,
                             ),
@@ -146,7 +177,7 @@ class Home extends GetView<HomeController> {
                           padding: EdgeInsets.only(left: 8.0),
                           child: Text(
                             "Banjir",
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               fontSize: 45,
                               color: Colors.white,
                             ),
