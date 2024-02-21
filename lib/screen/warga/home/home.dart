@@ -23,7 +23,7 @@ class Home extends GetView<HomeController> {
             iconSize: 30,
             color: Colors.black,
             onPressed: () {
-              // Tambahkan fungsi yang akan dijalankan saat ikon notifikasi ditekan
+              Get.toNamed('/notifikasi');
             },
           ),
         ],
@@ -78,16 +78,65 @@ class Home extends GetView<HomeController> {
                   height: 25,
                 ),
                 Center(
+                  child: InkWell(
+                    onTap: () {
+                      Get.toNamed('/pencurian');
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        width: 336,
+                        height: 121,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 126, 123, 123),
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(
+                            color: const Color.fromARGB(255, 126, 123, 123),
+                            width: 2.0,
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(left: 8.0),
+                              child: Text(
+                                "Pencurian",
+                                style: TextStyle(
+                                  fontSize: 45,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            Image.asset(
+                              "images/pencurian.png",
+                              width: 100,
+                              height: 100,
+                              fit: BoxFit.contain,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                InkWell(
+                  onTap: () {
+                      Get.toNamed('/kebakaran');
+                    },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       width: 336,
                       height: 121,
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 126, 123, 123),
+                        color: const Color.fromARGB(255, 236, 193, 130),
                         borderRadius: BorderRadius.circular(10.0),
                         border: Border.all(
-                          color: const Color.fromARGB(255, 126, 123, 123),
+                          color: const Color.fromARGB(255, 236, 193, 130),
                           width: 2.0,
                         ),
                       ),
@@ -97,7 +146,7 @@ class Home extends GetView<HomeController> {
                           const Padding(
                             padding: EdgeInsets.only(left: 8.0),
                             child: Text(
-                              "Pencurian",
+                              "Kebakaran",
                               style: TextStyle(
                                 fontSize: 45,
                                 color: Colors.white,
@@ -105,52 +154,13 @@ class Home extends GetView<HomeController> {
                             ),
                           ),
                           Image.asset(
-                            "images/pencurian.png",
+                            "images/kebakaran.png",
                             width: 100,
                             height: 100,
                             fit: BoxFit.contain,
                           ),
                         ],
                       ),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: 336,
-                    height: 121,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 236, 193, 130),
-                      borderRadius: BorderRadius.circular(10.0),
-                      border: Border.all(
-                        color: const Color.fromARGB(255, 236, 193, 130),
-                        width: 2.0,
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(left: 8.0),
-                          child: Text(
-                            "Kebakaran",
-                            style: TextStyle(
-                              fontSize: 45,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        Image.asset(
-                          "images/kebakaran.png",
-                          width: 100,
-                          height: 100,
-                          fit: BoxFit.contain,
-                        ),
-                      ],
                     ),
                   ),
                 ),

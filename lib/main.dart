@@ -1,11 +1,12 @@
 import 'package:altect/common/bindings/app_bindings.dart';
-import 'package:altect/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
+import 'routes/app_routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +28,8 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //bool isUser = true;
+    //String userRole = 'admin';
     return GetMaterialApp(
       title: 'Altect',
       debugShowCheckedModeBanner: false,
@@ -35,7 +38,17 @@ class MyApp extends StatelessWidget {
       initialBinding: AppBinding(),
       defaultTransition: Transition.rightToLeft,
       transitionDuration: Get.defaultTransitionDuration,
+      // initialRoute: determineFirstRoute(),
+      // getPages: [
+      //   GetPage(name: '/splash', page: () => Splash()),
+      //   GetPage(name: '/peran', page: () => Peran()),
+      // ],
+      // // ignore: dead_code
+      // getPages: isUser ? userRoutes : adminRoutes,
+      // // ignore: dead_code
+      // initialRoute: isUser ? userInitialRoute : adminInitialRoute,
+      // getPages: AppRoutes.getRoutesForRole(userRole),
+      // initialRoute: AppRoutes.initial,
     );
   }
 }
-
